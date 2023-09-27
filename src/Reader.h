@@ -4,16 +4,21 @@
 #include <stdio.h>
 #include <SmrFramework.h>
 
-using namespace SmrFramework;
+// using namespace SmrFramework;
+
+#define Byte unsigned char
+#define UInt32 uint32_t
+#define UInt16 uint16_t
+#define Int32  int32_t
 
 class Reader {
   protected:
     FILE*   tape;
-    Boolean tapeRemark;
+    bool tapeRemark;
   public:
     Reader();
     ~Reader();
-    Boolean Mount(char* filename);
+    bool Mount(char* filename);
     Byte    Read();
     Byte    Translate(Byte in);
   };

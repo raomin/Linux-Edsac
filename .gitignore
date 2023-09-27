@@ -11,3 +11,5 @@ console/*.1
 console/*.2
 Documentation/*.1
 Documentation/*.2
+.pio
+.*

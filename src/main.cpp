@@ -1,12 +1,13 @@
 #define MAIN
 
+#include <Arduino.h>
 #include "header.h"
 #include "Cpu.h"
 #include "Reader.h"
 #include "Printer.h"
 #include "Debug.h"
 
-int main(int argc,char** argv) {
+void setup() {
   byte i;
   char tapeFilename[1024];
   cpu = new Cpu();
@@ -18,18 +19,18 @@ int main(int argc,char** argv) {
   initialOrders = 2;
   singleStep = false;
   strcpy(tapeFilename,"");
-  for (i=1; i<argc; i++) {
-    if (strcmp(argv[i],"-d") == 0) debugger->DebugMode('Y');
-    if (strcmp(argv[i],"-1") == 0) initialOrders = 1;
-    if (strcmp(argv[i],"-2") == 0) initialOrders = 2;
-    if (strcmp(argv[i],"-t") == 0) cpu->Trace('Y');
-    if (strcmp(argv[i],"-1949") == 0) cpu->Only1949(true);
-    if (argv[i][0] != '-') {
-      strcpy(tapeFilename,argv[i]);
-      if (tapeFilename[strlen(tapeFilename)-1] == '1') initialOrders = 1;
-      if (tapeFilename[strlen(tapeFilename)-1] == '2') initialOrders = 2;
-      }
-    }
+  // for (i=1; i<argc; i++) {
+  //   if (strcmp(argv[i],"-d") == 0) debugger->DebugMode('Y');
+  //   if (strcmp(argv[i],"-1") == 0) initialOrders = 1;
+  //   if (strcmp(argv[i],"-2") == 0) initialOrders = 2;
+  //   if (strcmp(argv[i],"-t") == 0) cpu->Trace('Y');
+  //   if (strcmp(argv[i],"-1949") == 0) cpu->Only1949(true);
+  //   if (argv[i][0] != '-') {
+  //     strcpy(tapeFilename,argv[i]);
+  //     if (tapeFilename[strlen(tapeFilename)-1] == '1') initialOrders = 1;
+  //     if (tapeFilename[strlen(tapeFilename)-1] == '2') initialOrders = 2;
+  //     }
+  //   }
   printf("Initial Orders: %d\n",initialOrders);
   if (debugger->DebugMode() == 'Y') cpu->Trace('Y');
   if (strlen(tapeFilename) > 0) {
@@ -57,6 +58,8 @@ int main(int argc,char** argv) {
       }
     else StopMode();
     }
-  return 0;
+  return;
   }
 
+void loop() {
+  }

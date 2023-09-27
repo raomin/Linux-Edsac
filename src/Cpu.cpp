@@ -136,12 +136,12 @@ void Cpu::doMul(char mode) {
     }
   }
 
-UInt32 Cpu::fetchB(UInt32 address, Boolean indexed) {
+UInt32 Cpu::fetchB(UInt32 address, bool indexed) {
   if (!indexed) return mem[address];
   return mem[(address+breg) & 0x3ff];
   }
 
-void Cpu::storeB(UInt32 address, Boolean indexed, UInt32 value) {
+void Cpu::storeB(UInt32 address, bool indexed, UInt32 value) {
   if (!indexed) {
     mem[address] = value;
     return;
@@ -180,7 +180,7 @@ void Cpu::lShift(UInt32* number,UInt32 num) {
 void Cpu::mbAdd(UInt32* value,Int32 words) {
   Byte c;
   Int32  i;
-  Boolean signCheck;
+  bool signCheck;
   UInt32 sign;
   signCheck = ((value[0] & 0x10000) == (acc[0] & 0x10000));
   if (signCheck) sign = acc[0] & 0x10000;
@@ -407,11 +407,11 @@ UInt32* Cpu::Multiplier() {
   return multiplier;
   }
 
-Boolean Cpu::Only1949() {
+bool Cpu::Only1949() {
   return only1949;
   }
 
-Boolean Cpu::Only1949(Boolean b) {
+bool Cpu::Only1949(bool b) {
   only1949 = b;
   return only1949;
   }
@@ -459,7 +459,7 @@ void Cpu::Step() {
   String *line;
   char    buffer1[128];
   char    buffer2[128];
-  Boolean indexed;
+  bool indexed;
   if (stopCommand) return;
   cycles[0]++;
   if (cycles[0] == 0x40000) {
@@ -469,7 +469,7 @@ void Cpu::Step() {
   order = Fetch(scr);
   if (trace == 'Y') {
     line = Disassem(scr, order);
-    sprintf(buffer1,"%s  ",line->AsCharArray());
+    sprintf(buffer1,"%s  ",line->c_str());
     delete(line);
     }
   scr++;
@@ -1013,11 +1013,11 @@ void Cpu::Step() {
     }
   }
 
-Boolean Cpu::StopCommand() {
+bool Cpu::StopCommand() {
   return stopCommand;
   }
 
-Boolean Cpu::StopCommand(Boolean b) {
+bool Cpu::StopCommand(bool b) {
   stopCommand = b;
   return stopCommand;
   }

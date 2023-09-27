@@ -3,6 +3,8 @@
 
 #include "Cpu.h"
 
+
+
 class Debug {
   protected:
     char   debugMode;
@@ -10,7 +12,7 @@ class Debug {
     Cpu*   cpu;
     UInt32 numBreakpoints;
     UInt64 traps;
-    Boolean atBreakpoint();
+    bool atBreakpoint();
     void    bp(char* buffer);
     void    clear();
     void    disassemble(char* buffer);
@@ -18,7 +20,7 @@ class Debug {
     void    help();
     void    rembp(char* buffer);
     void    reset();
-    Boolean run(char* buffer);
+    bool run(char* buffer);
     void    showbp();
     void    showreg();
     void    showtraps();
@@ -27,7 +29,7 @@ class Debug {
     void    tank(char* buffer);
     void    tape(char* buffer);
     void    trap(char* buffer);
-    Boolean trapSet();
+    bool trapSet();
     void    untrap(char* buffer);
   public:
     Debug(Cpu* c);

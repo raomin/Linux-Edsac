@@ -1,3 +1,5 @@
+ESP32 attempt
+
 Emulator of the EDSAC computer built in 1949.  This project implements the EDSAC emulator on Linux and currently consists of three separate emulators:
 1. Console emulator.  This version provides no physical output during run, but gives a command line options during stop mode to see the state of the registers or memory.  This is the fastest version of the emulator.
 2. Text emulator.  This version runs purley in a text terminal but provides output during run of the memory store and registers.  Since the emulator must write text to the screen each cycle, this version is slower than the pure console version.

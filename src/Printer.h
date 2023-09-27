@@ -3,21 +3,26 @@
 
 #include <SmrFramework.h>
 
-using namespace SmrFramework;
+// using namespace SmrFramework;
+
+#define UInt32 uint32_t
+#define UInt16 uint16_t
+#define Int32  int32_t
+#define Byte   unsigned char
 
 class Printer {
   protected:
     char    printer[16][80];
-    Int32   printerLine;
+    int32_t   printerLine;
     Int32   printerPos;
-    Boolean shiftMode;
+    bool shiftMode;
   public:
     Printer();
     ~Printer();
     void Print(Byte out);
     void Print(const char* message);
-    Boolean ShiftMode();
-    Boolean ShiftMode(Boolean b);
+    bool ShiftMode();
+    bool ShiftMode(bool b);
     Byte    Translate(Byte in);
   };
 

@@ -128,11 +128,11 @@ void Printer::Print(Byte out) {
     }
   }
 
-Boolean Printer::ShiftMode() {
+bool Printer::ShiftMode() {
   return shiftMode;
   }
 
-Boolean Printer::ShiftMode(Boolean b) {
+bool Printer::ShiftMode(bool b) {
   shiftMode = b;
   return shiftMode;
   }

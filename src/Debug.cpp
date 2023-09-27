@@ -12,7 +12,7 @@ Debug::Debug(Cpu* c) {
 Debug::~Debug() {
   }
 
-Boolean Debug::atBreakpoint() {
+bool Debug::atBreakpoint() {
   UInt32 i;
   for (i=0; i<numBreakpoints; i++)
     if (cpu->Scr() == breakpoints[i]) return true;
@@ -117,7 +117,7 @@ void Debug::reset() {
   cpu->Scr(0);
   }
 
-Boolean Debug::run(char* buffer) {
+bool Debug::run(char* buffer) {
   UInt32 addr;
   if (strlen(buffer) == 0) {
     if (numBreakpoints == 0 && traps == 0) {
@@ -239,7 +239,7 @@ void Debug::showTank(UInt32 tank) {
 void Debug::showtraps() {
   Int32 i;
   Int32 cmd;
-  Boolean tmpShiftMode;
+  bool tmpShiftMode;
   UInt32 mask;
   mask = 0x80000000;
   cmd = 31;
@@ -290,7 +290,7 @@ void Debug::tape(char* buffer) {
     }
   }
 
-Boolean Debug::trapSet() {
+bool Debug::trapSet() {
   UInt32 opcode;
   if (traps == 0) return 'N';
   opcode = cpu->Memory()[cpu->Scr()] >> 12;
@@ -314,7 +314,7 @@ void Debug::Debugger() {
   while (flag == 'Y') {
     order = cpu->Fetch(cpu->Scr());
     line = cpu->Disassem(cpu->Scr(),order);
-    printf("%s>",line->AsCharArray());
+    printf("%s>",line->c_str());
     delete(line);
     fgets(buffer,1023,stdin);
     while (buffer[0] != 0 && buffer[strlen(buffer)-1] < ' ')

@@ -4,7 +4,7 @@
 #include <sys/types.h>
 #include <SmrFramework.h>
 
-using namespace SmrFramework;
+// using namespace SmrFramework;
 
 #include "Cpu.h"
 #include "Reader.h"
@@ -17,6 +17,8 @@ using namespace SmrFramework;
 #define LINK extern
 #endif
 
+#define bool bool
+
 typedef u_int32_t uint32_t;
 typedef u_int16_t uint16_t;
 
@@ -24,10 +26,10 @@ typedef u_int16_t uint16_t;
 typedef unsigned char byte;
 #endif
 
-#ifndef _WORD
-typedef uint16_t word;
+#ifndef _MY_WORD
+#define _MY_WORD
+typedef uint16_t my_word;
 #endif
-
 
 LINK Cpu *cpu;
 LINK Reader *reader;
@@ -38,7 +40,8 @@ LINK char    tapeRemark;
 LINK int     initialOrders;
 LINK long    cycles;
 LINK char    stopSim;
-LINK Boolean singleStep;
+LINK bool singleStep;
+
 
 
 extern void StopMode();

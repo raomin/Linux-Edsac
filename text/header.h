@@ -4,7 +4,7 @@
 #include <sys/types.h>
 #include <SmrFramework.h>
 
-using namespace SmrFramework;
+// using namespace SmrFramework;
 
 #include "Cpu.h"
 #include "Reader.h"
@@ -34,13 +34,13 @@ LINK Reader *reader;
 LINK Printer *printer;
 LINK Debug   *debugger;
 
-LINK Boolean breakPoints[1024];
+LINK bool breakPoints[1024];
 LINK char    tapeRemark;
 LINK int     initialOrders;
 LINK long    cycles;
 LINK char    stopSim;
 LINK Int32   currentTank;
-LINK Boolean singleStep;
+LINK bool singleStep;
 
 
 extern void StopMode();

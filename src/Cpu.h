@@ -3,16 +3,23 @@
 
 #include <SmrFramework.h>
 
-using namespace SmrFramework;
+// using namespace SmrFramework;
 
 #include "Printer.h"
 #include "Reader.h"
+#include "Arduino.h"
 
 #define CH_ACC       1
 #define CH_IER       2
 #define CH_ICAND     4
 #define CH_MEM_1     8
 #define CH_MEM_2    16
+
+#define UInt32 uint32_t
+#define UInt16 uint16_t
+#define Int32  int32_t
+#define Byte   unsigned char
+
 
 class Cpu {
   protected:
@@ -31,14 +38,14 @@ class Cpu {
     UInt32   cycles[2];
     Printer* printer;
     Reader*  reader;
-    Boolean  stopCommand;
-    Boolean  only1949;
-    Boolean  overflow;
+    bool  stopCommand;
+    bool  only1949;
+    bool  overflow;
     char     trace;
     void   doAnd();
     void   doMul(char mode);
-    UInt32 fetchB(UInt32 address, Boolean indexed);
-    void   storeB(UInt32 address, Boolean indexed, UInt32 value);
+    UInt32 fetchB(UInt32 address, bool indexed);
+    void   storeB(UInt32 address, bool indexed, UInt32 value);
     Byte   getShiftCount(UInt32 a);
     void   lMul(UInt32 hi,UInt32 lo,char mode);
     void   lShift(UInt32* number, UInt32 num);
@@ -70,16 +77,16 @@ class Cpu {
     UInt32  *Memory();
     UInt32  *Multiplicand();
     UInt32  *Multiplier();
-    Boolean  Only1949();
-    Boolean  Only1949(Boolean b);
+    bool  Only1949();
+    bool  Only1949(bool b);
     UInt32   Order();
     void     Reset();
     UInt32   Scr();
     UInt32   Scr(UInt32 i);
     void     Start();
     void     Step();
-    Boolean  StopCommand();
-    Boolean  StopCommand(Boolean b);
+    bool  StopCommand();
+    bool  StopCommand(bool b);
     char     Trace();
     char     Trace(char c);
   };
