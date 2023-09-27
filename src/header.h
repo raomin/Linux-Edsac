@@ -26,10 +26,10 @@ typedef u_int16_t uint16_t;
 typedef unsigned char byte;
 #endif
 
-#ifndef _MY_WORD
-#define _MY_WORD
-typedef uint16_t my_word;
+#ifndef _WORD
+typedef uint16_t word;
 #endif
+
 
 LINK Cpu *cpu;
 LINK Reader *reader;
@@ -41,7 +41,6 @@ LINK int     initialOrders;
 LINK long    cycles;
 LINK char    stopSim;
 LINK bool singleStep;
-
 
 
 extern void StopMode();
