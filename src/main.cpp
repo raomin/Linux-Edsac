@@ -39,7 +39,7 @@ void setup()
   // OPTIONS
   debugger->DebugMode('Y');
   initialOrders = 1;
-  initialOrders = 2;
+  // initialOrders = 2;
   cpu->Trace('Y');
   cpu->Only1949(true);
   strcpy(tapeFilename, "/fs/tape1.txt");
