@@ -3,12 +3,7 @@
 
 #include <SmrFramework.h>
 
-// using namespace SmrFramework;
 
-#define UInt32 uint32_t
-#define UInt16 uint16_t
-#define Int32  int32_t
-#define Byte   unsigned char
 
 class Printer {
   protected:

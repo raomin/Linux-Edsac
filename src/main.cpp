@@ -9,6 +9,10 @@
 
 void setup()
 {
+
+  //prepare Serial for fgets etc.
+  Serial.begin(115200 );
+
   byte i;
   char tapeFilename[1024];
   cpu = new Cpu();

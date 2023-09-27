@@ -17,11 +17,6 @@
 #define LINK extern
 #endif
 
-#define bool bool
-
-typedef u_int32_t uint32_t;
-typedef u_int16_t uint16_t;
-
 #ifndef _BYTE
 typedef unsigned char byte;
 #endif
@@ -41,6 +36,5 @@ LINK int     initialOrders;
 LINK long    cycles;
 LINK char    stopSim;
 LINK bool singleStep;
-
 
 extern void StopMode();
